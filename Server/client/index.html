@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>chat client demo</title>
+		<link href="/styles.css" type ="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="userCount">0 users connected</div>
+		<ul id="messageList"></ul>
+		<form action="">
+			<input id="sendMsg" autocomplete="off" /><button>TRANSMIT MESSAGE</button>
+		</form>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="/socketHandler.js"></script>
+	</body>
+</html>
