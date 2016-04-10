@@ -12,6 +12,7 @@ $(function() {
 	/**
 	 * Send message to server if connection is active
 	**/
+	
 	function messageSender() {
 		if (socket.connected) {
 			socket.emit('chat message', { 'id': socket.io.engine.id, 'message': $('#sendMsg').val() });
@@ -24,32 +25,34 @@ $(function() {
 	
 	/**
 	 * Send request to server for specified file
-	**/ 
+	**/
 	function test() {
-		if (socket.connected) {
-			socket.emit('test');
-		}
+			if (socket.connected) {
+					socket.emit('test');
+			}
 	}
-
+	
+	
 	/**
 	 * Update user count in window
 	**/
+	
 	socket.on('user count', function(msg) {
-		document.getElementById('userCount').innerHTML = 'Connected user count: ' + msg;
+		document.getElementById('userCount').innerHTML = msg + ' User(s) Connected';
 	});
-			
-
+	
 	/**
 	 * Display received chat message in window
-	**/
+	**/		
+	
 	socket.on('chat message', function(msg){
 		d = new Date();
 		
 		if (msg.id == socket.io.engine.id) {
-			$('#messageList').append($('<li>').html(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' - Me: <br>' + msg.message).css('text-align', 'right'));
+			$('#messageList').append($('<li>').html('Me --- ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '<br>' + msg.message).css('text-align', 'right'));
 		}
 		else {
-			$('#messageList').append($('<li>').html(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ' - User ' + socket.io.engine.id + " says: <br>" + msg.message));
+			$('#messageList').append($('<li>').html('User --- ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + socket.io.engine.id + " says: <br>" + msg.message).css('text-align', 'left'));
 		}
 	});
 	
