@@ -17,25 +17,63 @@ var user_count = 0;
 /**
  * Sets specified directory as location of client side code to be pushed on new connection
 **/
-app.use(express.static(__dirname + '/client'));
+app.use(express.static('client'));
+app.get('/', function (req, res) {
+	console.log('app.get');
+	res.sendFile(__dirname + "/" + "index.htm");
+});
 
 /**
  * Called when new connection is established
 **/
-io.on('connection', function(socket) {
-	var conn_id;
+io.sockets.on('connection', function(socket) {
+	//var conn_id;
 	user_count++;
-
-	console.log('a user connected with id: ' + conn_id);
+	var rooms = [''];
+	var usernames = {};
+	var animals, adjs
+	fs.readFile('animals.txt', 'utf8', function(err, data) {
+		if (err) throw err;
+		animals = data.split('\n');
+	});
+	fs.readFile('adjectives.txt', 'utf8', function(err, data) {
+		if (err) throw err;
+		adjs = data.split('\n');
+	});
+	
 	io.emit('user count', user_count);
 
+	socket.on('newuser', function(username) {
+		if (username == "" || username == null) {
+		
+			var randLineIndex = Math.floor(Math.random() * adjs.length);
+			var randomLine = adjs[randLineIndex];
+			username = randomLine[0].toUpperCase() + randomLine.slice(1);
+			
+			randLineIndex = Math.floor(Math.random() * adjs.length);
+			randomLine = adjs[randLineIndex];
+			username += randomLine[0].toUpperCase() + randomLine.slice(1);
+			
+			randLineIndex = Math.floor(Math.random() * animals.length);
+			randomLine = animals[randLineIndex];
+			username += randomLine[0].toUpperCase() + randomLine.slice(1);
+		}
+		socket.username = username;
+		usernames[username] = username;
+		socket.room = '';
+		//socket.id = '';
+		console.log("user connected: " + username);
+		socket.emit('username', socket.username);
+	});
+	
+	
 	/**
 	 * Called on client disconnected; pushes new user count to all connected clients
 	**/
 	socket.on('disconnect', function() {
-		console.log('user disconnected');
+		console.log('User disconnected: ' + socket.username);
 		user_count--;
-		io.emit('user count', user_count);
+		//io.emit('user count', user_count);
 	});
 	
 	/**
@@ -43,15 +81,18 @@ io.on('connection', function(socket) {
 	 * @params - msg: Message from client
 	**/
 	socket.on('chat message', function(msg) {
-		console.log('message from ' + msg.id + ': ' + msg.message);
-		io.emit('chat message', { 'id': msg.id, 'message': msg.message } );
+		console.log('message to _' + socket.room + '_ from ' + socket.username + ': ' + msg.message);
+		io.sockets.in(socket.room).emit('chat message', { 'un': socket.username, 'message': msg.message } );
 	});
 	
-	/**
-	 * Called on name change from client
-	**/
-	socket.on('conn_id', function(msg) {
-		conn_id = msg;
+	
+	socket.on('join_room', function (room) {
+		count = io.sockets.clients(socket.room).length;
+		io.sockets.in(socket.room).emit('user count', (count - 1));
+		socket.leave(socket.room);
+		socket.join(room);
+		socket.room = room;
+		io.sockets.in(socket.room).emit('user count', io.sockets.adapter.rooms[socket.room].length);
 	});
 	
 	/**
@@ -71,6 +112,7 @@ io.on('connection', function(socket) {
 		});
 	});
 	
+	
 	/**
 	 * Receive and save transmitted file to cache directory
 	**/
@@ -83,12 +125,14 @@ io.on('connection', function(socket) {
 				console.log('File could not be saved.');
 			}else{
 				console.log('File saved.');
+				sockets.emit('new_file', file.name);
 			};
 		});
 	});
 	
 	
 });
+
 
 /**
  * Listens for new client connections

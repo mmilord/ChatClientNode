@@ -1,30 +1,76 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Politics</title>
-		<link href="/styles.css" type ="text/css" rel="stylesheet" />
-	</head>
-	<body>
-		<h1 style="text-align:center;float:center;background-color:blue;">Politics</h1>
-		<div style="border-left:medium #CC0000 solid; background-color:yellow; height:475px; overflow: auto;" />
-		<h2 style="text-align:right;float:right;"> <div id="userCount">0 connected users</h2> 
-		<hr style="clear:both;"/>
-		<ul id="messageList"></ul>
-		<form action="">
-			<input id="sendMsg" autocomplete="off" /><button>SEND</button>
-		</form>
-		<div id="wrapper">
-				<h1>Select a File to Upload!</h1>
-				<form>
-						<input type="file">
-						<input type="submit" value="Upload File">
-				</form>
-				<div id="outcome"></div>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" xml:lang = "en" lang = "en">
+
+
+<!-- Created by Naman Garg --!>
+
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+	<title>Where gossip is gospel.</title> 
+
+	<link rel = "stylesheet" type = "text/css" media = "screen" href="CSS/main.css"/>
+
+</head>
+
+
+<body>
+	
+	<div id="titleheader"> 
+		
+		<div id="title">Chatty Cathy</div>
+		
+		<div id="subtitle">Where gossip is gospel.</div>
+		
+		<img class="divider" src="divider.png" style="height:20px;width:40%;"></img>
+		
+		<div id="tswcsstabs">
+			<ul>
+				<li><a href="index.html">About Chatty Cathy</a></li>
+				<li><a href="enterchat.htm">Start Gossiping</a></li>
+				<li><a href="creators.htm">About the Creators</a></li>
+				<li><a href="contactform.htm">Contact Us</a></li>
+			</ul>
 		</div>
-		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-		<script src="/socketHandler.js"></script>
-		<script src="/delivery.js"></script>
-	</body>
-</html>
+		
+		<img class="divider" src="divider.png" style="height:20px;width:40%;"></img>
+	
+	</div>
+	
+	<div id="bodyframe">
+	
+		<div id="bodytitle">About Chatty Cathy</div>
+		
+		<div id="bodytext">
+			
+			<p>Chatty Cathy is a simple and anonymous chat client that connects people from around the world and allows them to share gossip at an unprecedented rate.</p>
+			
+			<p>Unlike other apps that may sound similar, Chatty Cathy dispenses with all of the extraneous features that make those apps bulky and instead strips the experience down to its core to ensure that users get the most pure gossip sharing experience.</p>
+			
+			<p>Our simple, streamlined user interface allows even the most technologically challenged user are to jump right into the action and start gossiping at the touch of a button. </p>
+			
+			<p>And now, with our random username generator, you don't even have to come up with your own username. By simply jumping into a chatroom, you will be assigned a unique and anonymous handle with which to start gossiping.
+			
+			<p>For the more discerning user, we do also allow you to pick your own usernames in case that is something you prefer.</p>
+			
+			<p>So, with all the said, the only question that remains is: <br /></p>
+			
+			<p>What are you waiting for?</p>
+			
+			<div id="buttons">
+				<ul>
+					<li><a href="enterchat.htm">Start Gossiping</a></li>
+				</ul>
+			</div>
+		
+		</div>
+	
+	</div>
+	
+</body>
+
+
+</html> 

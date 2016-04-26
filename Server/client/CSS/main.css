@@ -1,0 +1,154 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Created by Naman Garg */
+
+/* Embedded font */
+@font-face {
+ font-family: Calibri;
+ src: url("Calibri.TTF")
+}
+@font-face {
+ font-family: CalibriLight;
+ src: url("Calibri Light.TTF")
+}
+@font-face {
+ font-family: CalibriLightItalic;
+ src: url("Calibri Light Italic.TTF")
+}
+
+/* Page Background Colour */
+body {
+	background-color: #f9e79f;
+}
+
+/* Title Frame */
+#titleheader {
+	text-align: center;
+	margin-top: 2%;
+	padding: 0.3%;
+	margin-right: auto;
+	margin-left: auto;
+	right: auto;
+	left: auto;
+}
+
+#title {
+	font-size: 80px;
+	font-family: "CalibriLight", Verdana, Arial, sans-serif;
+	color: #000000;
+}
+
+#subtitle {
+	font-size: 30px;
+	font-family: "CalibriLightItalic", Verdana, Arial, sans-serif;
+	color: #000000;
+	padding-top: 0.7%;
+	padding-bottom: 1%;
+}
+
+img.divider {
+	height:20%;
+	width:40%;
+}
+
+/* Menu Bar */
+#tswcsstabs {
+	padding-top: 0.2%;
+	padding-bottom: 0.1%;
+}
+
+#tswcsstabs ul {
+	margin: 0 ;
+	padding: 0 ;
+	list-style: none ;
+	display: inline ;
+}
+
+#tswcsstabs ul li {
+	margin: 0 ;
+	padding: 0.5% ;
+	display: inline ;
+	text-align: center ;
+	list-style: none ;
+	font-family: "Calibri", Verdana, Arial, sans-serif ;
+}
+
+#tswcsstabs li a {
+	color: #000 ;
+	background-color:  #f39c12  ;
+	border: 1px outset #f0f0f0 ;
+	padding: 8px ;
+	text-decoration: none ;
+	display: inline ;
+}
+
+#tswcsstabs li a:hover {
+	color: #000 ;
+	background-color: #c0c0c0 ;
+}
+
+/* Other Buttons */
+#buttons {
+	padding-top: 0.2%;
+	padding-bottom: 0.1%;
+}
+
+#buttons ul {
+	margin: 0 ;
+	padding: 0 ;
+	list-style: none ;
+	display: inline ;
+}
+
+#buttons ul li {
+	margin: 0 ;
+	padding: 0.5% ;
+	display: inline ;
+	text-align: center ;
+	list-style: none ;
+	font-family: "Calibri", Verdana, Arial, sans-serif ;
+}
+
+#buttons li input {
+	color: #000 ;
+	background-color:  #f39c12  ;
+	border: 1px outset #f0f0f0 ;
+	padding: 8px ;
+	text-decoration: none ;
+	display: inline ;
+}
+
+#buttons li input:hover {
+	color: #000 ;
+	background-color: #c0c0c0 ;
+}
+
+/* Body Frame */
+#bodyframe {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2%;
+	background-color: #fcf3cf;
+	text-align: center;
+}
+
+#bodytitle {
+	padding-bottom: 1.5%;
+	font-size: 45px;
+	font-family: "CalibriLight", Verdana, Arial, sans-serif;
+	color: #000000;
+}
+
+#bodytext {
+	padding-bottom: 3%;
+	padding-left: 2%;
+	padding-right: 2%;
+	font-family: "Calibri", Verdana, Arial, sans-serif;
+	font-size: 20px;
+}
+
+#bodytext p {
+	text-align: justify;
+}
