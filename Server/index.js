@@ -125,7 +125,7 @@ io.sockets.on('connection', function(socket) {
 				console.log('File could not be saved.');
 			}else{
 				console.log('File saved.');
-				sockets.emit('new_file', file.name);
+				io.sockets.emit('new_file', file.name);
 			};
 		});
 	});
