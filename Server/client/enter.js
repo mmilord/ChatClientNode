@@ -1,6 +1,6 @@
 $(function() {
 
-	$('#enterChat').click(function() {
+	$('.room').click(function() {
 		//alert("test");
 		var loc = "chat_window.html?room=" + $(this).attr('value');
 		if ($('#un').val() != "") {

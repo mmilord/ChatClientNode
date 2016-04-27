@@ -6,17 +6,17 @@
 		<link href="/styles.css" type ="text/css" rel="stylesheet" />
 	</head>
 	<body>
-		<h1 style="text-align:center;float:center;background-color:blue;"><div id="title">Politics</div></h1>
-		<div style="border-left:medium #CC0000 solid; background-color:yellow; height:550px; overflow: auto;" />
+		<h1 style="text-align:center;float:center;background-color:#f39c12;color:#000000"><div id="title">Politics</div></h1>
+		<div style="border-left:medium #CC0000 solid; background-color:#e1e79f; height:550px; overflow: auto;" />
 		<h2 style="text-align:left;float:left;"><div id="username"></div> </h2><h2 style="text-align:right;float:right;"> <div id="userCount">0 connected users</div></h2> 
 		<hr style="clear:both;"/>
-		<div id="msgs"><ul id="messageList"></ul></div>
-		<div style="color:#0000FF">
-			<form action="">
-				<input id="sendMsg" autocomplete="off" /><button>SEND</button>
-			</form>
+		<div id="msgs" style="background-color:yellow"><ul id="messageList"></ul>
+			<div style="color:pink">
+				<form action="">
+					<input id="sendMsg" autocomplete="off" /><button>SEND</button>
+				</form>
+			</div>
 		</div>
-		
 		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 		<script src="/socketHandler.js"></script>
